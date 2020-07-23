@@ -23,7 +23,7 @@ X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random
 #################################
 
 # Fit a model on the train section
-regr = RandomForestRegressor(max_depth=5, random_state=seed)
+regr = RandomForestRegressor(max_depth=2, random_state=seed)
 regr.fit(X_train, y_train)
 
 # Report training set score
@@ -57,7 +57,7 @@ ax.set_ylabel('Feature', fontsize = axis_fs)#ylabel
 ax.set_title('Random forest\nfeature importance', fontsize = title_fs)
 
 plt.tight_layout()
-plt.savefig("feature_importance.png",dpi=300) 
+plt.savefig("feature_importance.png",dpi=120) 
 plt.close()
 
 
@@ -81,5 +81,5 @@ plt.ylim((2.5,8.5))
 plt.xlim((2.5,8.5))
 
 plt.tight_layout()
-plt.savefig("residuals.png",dpi=300) 
+plt.savefig("residuals.png",dpi=120) 
 
