@@ -18,8 +18,8 @@ ap.add_argument("-k", "--key", required=True,
 args = vars(ap.parse_args())
 
 # Set wandb up
-wandb.login(key=args["key"])
-wandb.init(project="wanbd-github-actions", entity="sayakpaul")
+print(wandb.login(key=args["key"]))
+print(wandb.init(project="wanbd-github-actions", entity="sayakpaul"))
 
 ################################
 ########## DATA PREP ###########
