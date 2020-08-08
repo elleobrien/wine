@@ -4,17 +4,17 @@ jobs:
   run:
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v2
-      - name: wandb_github_actions
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.7'
-        env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-        run: |
+    - uses: actions/checkout@v2
+    - name: wandb_github_actions
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.7'
+      env:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
 
-          # Your ML workflow goes here
-          pip install -r requirements.txt
-          python train.py --key ${{ secrets.WANDB_API_KEY }}
+        # Your ML workflow goes here
+        pip install -r requirements.txt
+        python train.py --key ${{ secrets.WANDB_API_KEY }}
 
-          echo "Finished run."
+        echo "Finished run."
