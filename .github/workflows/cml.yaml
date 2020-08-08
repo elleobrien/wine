@@ -1,20 +1,25 @@
-name: model-wine-quality
-on: push
+name: Python package
+
+on: [push]
+
 jobs:
-  run:
-    runs-on: [ubuntu-latest]
+  build:
+
+    runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
-    - name: wandb_github_actions
+    - name: Set up Python 3.x
       uses: actions/setup-python@v2
       with:
-        python-version: '3.7'
-      env:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        # Semantic version range syntax or exact version of a Python version
+        python-version: '3.7' 
+        # Optional - x64 or x86 architecture, defaults to x64
+        architecture: 'x64' 
+    # You can test your matrix by printing the current Python version
+    - name: Display Python version
       run: |
-
-        # Your ML workflow goes here
+	      # Your ML workflow goes here
         pip install -r requirements.txt
         python train.py --key ${{ secrets.WANDB_API_KEY }}
-
         echo "Finished run."
