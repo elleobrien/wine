@@ -1,5 +1,5 @@
 name: model-wine-quality
-on: spush
+on: push
 jobs:
   run:
     runs-on: [ubuntu-latest]
@@ -14,3 +14,5 @@ jobs:
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train.py --key ${{ secrets.WANDB_API_KEY }}
+
+          echo "Finished run."
