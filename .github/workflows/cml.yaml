@@ -1,5 +1,5 @@
 name: model-wine-quality
-on: [push]
+on: spush
 jobs:
   run:
     runs-on: [ubuntu-latest]
