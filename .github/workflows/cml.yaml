@@ -1,4 +1,4 @@
-name: Python package
+name: Metric logging with wandb
 
 on: [push]
 
@@ -12,15 +12,20 @@ jobs:
       - name: Set up Python 3.x
         uses: actions/setup-python@v2
         with:
-          # Semantic version range syntax or exact version of a Python version
           python-version: '3.7' 
-          # Optional - x64 or x86 architecture, defaults to x64
-          architecture: 'x64' 
-      # You can test your matrix by printing the current Python version
-      - name: Display Python version
+      - uses: actions/cache@master
+        id: cache
+        with:
+          path: .cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: ${{ runner.os }}-test
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
-        
-          # Your ML workflow goes here
+          echo "Installing dependencies and caching them."
           pip install -r requirements.txt
+      - name: Train model and log wandb metric
+        run: |
+          # Your ML workflow goes here
           python train.py --key ${{ secrets.WANDB_API_KEY }}
           echo "Finished run."
