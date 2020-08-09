@@ -52,4 +52,4 @@ wandb.sklearn.plot_regressor(regr, X_train, X_test, y_train, y_test)
 api = wandb.Api()
 run = api.run(f"sayakpaul/wandb-github-actions/{wandb.run.id}")
 for k in run.history():
-	print(k)
+	print(k['summary_metrics'])
