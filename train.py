@@ -51,4 +51,5 @@ wandb.sklearn.plot_regressor(regr, X_train, X_test, y_train, y_test)
 # More logging
 api = wandb.Api()
 run = api.run(f"sayakpaul/wandb-github-actions/{wandb.run.id}")
-print(run.summary["mse"])
+metrics_dataframe = run.history()
+metrics_dataframe.to_csv("metrics.csv")
