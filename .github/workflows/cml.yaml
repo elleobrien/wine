@@ -29,6 +29,6 @@ jobs:
           echo "Finished run."
       - name: Archive metrics
         uses: actions/upload-artifact@v2
-          with:
-            name: metrics csv file
-            path: metrics.csv
+        with:
+          name: metrics csv file
+          path: metrics.csv
