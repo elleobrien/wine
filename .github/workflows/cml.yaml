@@ -16,16 +16,14 @@ jobs:
       - uses: actions/cache@master
         id: cache
         with:
-          path: .cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: ${{ runner.os }}-test
-      - name: Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          echo "Installing dependencies and caching them."
-          pip install -r requirements.txt
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            ${{ runner.os }}-
       - name: Train model and log wandb metric
         run: |
           # Your ML workflow goes here
+          pip install -r requirements.txt
           python train.py --key ${{ secrets.WANDB_API_KEY }}
           echo "Finished run."
