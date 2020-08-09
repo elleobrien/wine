@@ -19,7 +19,7 @@ args = vars(ap.parse_args())
 
 # Set wandb up
 print(wandb.login(key=args["key"]))
-print(wandb.init(project="wanbd-github-actions", entity="sayakpaul"))
+print(wandb.init(project="wandb-github-actions", entity="sayakpaul"))
 
 ################################
 ########## DATA PREP ###########
@@ -47,3 +47,9 @@ test_score = regr.score(X_test, y_test) * 100
 
 # Log plots for the regressor
 wandb.sklearn.plot_regressor(regr, X_train, X_test, y_train, y_test)
+
+# More logging
+api = wandb.Api()
+run = api.run(f"sayakpaul/wandb-github-actions/{wandb.run.id}")
+summary = run.summary._json_dict
+print(summary)
