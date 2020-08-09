@@ -1,25 +1,34 @@
-name: model-wine-quality
+name: Metric logging with wandb
+
 on: [push]
+
 jobs:
   run:
-    runs-on: [ubuntu-latest]
-    container: docker://dvcorg/cml-py3:latest
+
+    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - name: cml_run
-        env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7' 
+      - uses: actions/cache@master
+        id: cache
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            ${{ runner.os }}-
+      - name: Train model and log wandb metric
         run: |
-
           # Your ML workflow goes here
           pip install -r requirements.txt
-          python train.py
-          
-          echo "## Model metrics" > report.md
-          cat metrics.txt >> report.md
-          
-          echo "## Data viz" >> report.md
-          cml-publish feature_importance.png --md >> report.md
-          cml-publish residuals.png --md >> report.md
-          
-          cml-send-comment report.md
+          python train.py --key ${{ secrets.WANDB_API_KEY }}
+          echo "Finished run."
+      - name: Archive metrics
+        uses: actions/upload-artifact@v2
+        with:
+          name: metrics csv file
+          path: metrics.csv
