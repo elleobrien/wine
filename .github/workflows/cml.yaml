@@ -1,3 +1,7 @@
+name: Metric logging with wandb
+
+on: [push]
+
 jobs:
   run:
     runs-on: ubuntu-latest
