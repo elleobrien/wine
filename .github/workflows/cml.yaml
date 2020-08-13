@@ -28,9 +28,6 @@ jobs:
           echo "Installing dependencies and caching them."
           pip install -r requirements.txt
      
-      - name: ls show env.pythonLocation
-        run: ls -R ${{ env.pythonLocation}}
-     
       - name: show module
         run: pip show pandas
       
