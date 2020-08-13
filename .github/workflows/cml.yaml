@@ -1,30 +1,38 @@
-name: Metric logging with wandb
-
-on: [push]
-
 jobs:
   run:
-
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.x
         uses: actions/setup-python@v2
         with:
-          python-version: '3.7' 
+          python-version: '3.7'    
+       
       - uses: actions/cache@master
         id: cache
         with:
-          path: ~/.cache/pip
+          path: ${{ env.pythonLocation}}/lib/python3.7/site-packages/*
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
             ${{ runner.os }}-
+            
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          echo "Installing dependencies and caching them."
+          pip install -r requirements.txt
+     
+      - name: ls show env.pythonLocation
+        run: ls -R ${{ env.pythonLocation}}
+     
+      - name: show module
+        run: pip show pandas
+      
       - name: Train model and log wandb metric
         run: |
           # Your ML workflow goes here
-          pip install -r requirements.txt
           python train.py --key ${{ secrets.WANDB_API_KEY }}
           echo "Finished run."
       - name: Archive metrics
