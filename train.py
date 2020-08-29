@@ -48,8 +48,8 @@ test_score = regr.score(X_test, y_test) * 100
 # Log plots for the regressor
 wandb.sklearn.plot_regressor(regr, X_train, X_test, y_train, y_test)
 
-# More logging
-api = wandb.Api()
-run = api.run(f"sayakpaul/wandb-github-actions/{wandb.run.id}")
-metrics_dataframe = run.history()
-metrics_dataframe.to_csv("metrics.csv")
+# Create a comment on the commit
+run_url = wandb.run.get_url()
+print(run_url)
+with open("metrics.txt", 'w') as outfile:
+	outfile.write("wandb run page: {}".format(run_url))
