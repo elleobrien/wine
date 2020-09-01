@@ -49,6 +49,13 @@ test_score = regr.score(X_test, y_test) * 100
 # Log plots for the regressor
 wandb.sklearn.plot_regressor(regr, X_train, X_test, y_train, y_test)
 
+# More logging
+# This will be exported as a run artifact
+api = wandb.Api()
+run = api.run(f"sayakpaul/wandb-github-actions/{wandb.run.id}")
+metrics_dataframe = run.history()
+metrics_dataframe.to_csv("metrics.csv")
+
 # Create a comment on the commit
 # Credits:
 # https://github.community/t/automatic-commenting-on-a-commit-with-results-from-a-script/129529/6?u=sayakpaul
@@ -60,5 +67,6 @@ subprocess.Popen(["git", "config", "--global", "user.email", "41898282+github-ac
 
 print("Push to remote...")
 subprocess.Popen(["git", "add", "-A"])
+subprocess.Popen(["git", "rm -rf", "wandb"])
 subprocess.Popen(["git", "commit", "-m", run_url])
 subprocess.Popen(["git", "push"])
