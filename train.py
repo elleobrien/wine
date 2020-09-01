@@ -1,12 +1,13 @@
 # Imports
+import matplotlib.pyplot as plt
+import seaborn as sns
 import pandas as pd 
+import numpy as np
+import subprocess
 import argparse
 import wandb
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
 
 # Set random seed
 seed = 42
@@ -49,7 +50,15 @@ test_score = regr.score(X_test, y_test) * 100
 wandb.sklearn.plot_regressor(regr, X_train, X_test, y_train, y_test)
 
 # Create a comment on the commit
+# Credits:
+# https://github.community/t/automatic-commenting-on-a-commit-with-results-from-a-script/129529/6?u=sayakpaul
 run_url = wandb.run.get_url()
-print(run_url)
-with open("metrics.txt", 'w') as outfile:
-	outfile.write("wandb run page: {}".format(run_url))
+print("\n======================= Push changes to remote =======================")
+print("Set git config...")
+subprocess.Popen(["git", "config", "--global", "user.name", "github-actions[bot]"])
+subprocess.Popen(["git", "config", "--global", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"])
+
+print("Push to remote...")
+subprocess.Popen(["git", "add", "-A"])
+subprocess.Popen(["git", "commit", "-m", run_url])
+subprocess.Popen(["git", "push"])
