@@ -36,7 +36,6 @@ jobs:
           # Your ML workflow goes here
           python train.py --key ${{ secrets.WANDB_API_KEY }}
           echo "Finished run."
-          cat metrics.txt
       - name: Archive metrics
         uses: actions/upload-artifact@v2
         with:
