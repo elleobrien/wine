@@ -1,0 +1,26 @@
+{
+    "root": "/home/runner/work/wine/wine",
+    "program": "train.py",
+    "git": {
+        "remote": "https://github.com/sayakpaul/wine",
+        "commit": "b0260a600a10ef01f2fff4f8884af65fe5c70a50"
+    },
+    "email": null,
+    "codePath": "train.py",
+    "startedAt": "2020-09-01T16:22:32.165252",
+    "host": "fv-az176",
+    "username": "runner",
+    "executable": "/opt/hostedtoolcache/Python/3.7.9/x64/bin/python",
+    "os": "Linux-5.3.0-1035-azure-x86_64-with-debian-buster-sid",
+    "python": "3.7.9",
+    "cpu_count": 2,
+    "args": [
+        "--key",
+        "ab6c21fa98b79790d8c7a9d0a0844b7a1ddaa4e2"
+    ],
+    "state": "running",
+    "jobType": null,
+    "mode": "run",
+    "project": "wandb-github-actions",
+    "heartbeatAt": "2020-09-01T16:22:32.672906"
+}
