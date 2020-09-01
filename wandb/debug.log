@@ -1,0 +1,31 @@
+2020-09-01 16:16:07,774 DEBUG   MainThread:2869 [wandb_config.py:_load_defaults():154] no defaults not found in config-defaults.yaml
+2020-09-01 16:16:07,887 DEBUG   MainThread:2869 [meta.py:_setup_code_git():49] probe for git information
+2020-09-01 16:16:07,897 DEBUG   MainThread:2869 [meta.py:setup():104] code probe starting
+2020-09-01 16:16:07,897 DEBUG   MainThread:2869 [meta.py:_setup_code_program():58] save program starting
+2020-09-01 16:16:07,897 DEBUG   MainThread:2869 [meta.py:_setup_code_program():60] save program starting: /home/runner/work/wine/wine/./train.py
+2020-09-01 16:16:07,897 DEBUG   MainThread:2869 [meta.py:_setup_code_program():68] save program saved: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/code/train.py
+2020-09-01 16:16:07,898 DEBUG   MainThread:2869 [meta.py:_setup_code_program():70] save program
+2020-09-01 16:16:07,898 DEBUG   MainThread:2869 [meta.py:setup():124] code probe done
+2020-09-01 16:16:07,901 DEBUG   MainThread:2869 [run_manager.py:__init__():547] Initialized sync for wandb-github-actions/2rx5i2rg
+2020-09-01 16:16:07,905 INFO    MainThread:2869 [run_manager.py:wrap_existing_process():1149] wrapping existing process 2856
+2020-09-01 16:16:07,947 INFO    MainThread:2869 [run_manager.py:init_run():928] system metrics and metadata threads started
+2020-09-01 16:16:07,947 INFO    MainThread:2869 [run_manager.py:init_run():967] upserting run before process can begin, waiting at most 10 seconds
+2020-09-01 16:16:08,070 INFO    Thread-15 :2869 [run_manager.py:_upsert_run():1052] saving patches
+2020-09-01 16:16:08,090 INFO    Thread-15 :2869 [run_manager.py:_upsert_run():1056] saving pip packages
+2020-09-01 16:16:08,090 INFO    Thread-15 :2869 [run_manager.py:_upsert_run():1058] initializing streaming files api
+2020-09-01 16:16:08,091 INFO    Thread-15 :2869 [run_manager.py:_upsert_run():1065] unblocking file change observer, beginning sync with W&B servers
+2020-09-01 16:16:08,091 INFO    MainThread:2869 [run_manager.py:wrap_existing_process():1166] informing user process we are ready to proceed
+2020-09-01 16:16:08,094 INFO    MainThread:2869 [run_manager.py:_sync_etc():1298] entering loop for messages from user process
+2020-09-01 16:16:08,887 INFO    Thread-4  :2869 [run_manager.py:_on_file_modified():692] file/dir modified: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/config.yaml
+2020-09-01 16:16:09,001 INFO    Thread-4  :2869 [run_manager.py:_on_file_modified():692] file/dir modified: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/wandb-history.jsonl
+2020-09-01 16:16:09,006 INFO    Thread-4  :2869 [run_manager.py:_on_file_created():681] file/dir created: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/media/table/summary_metrics_0_b59ce92b.table.json
+2020-09-01 16:16:09,006 INFO    Thread-4  :2869 [run_manager.py:_on_file_created():681] file/dir created: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/output.log
+2020-09-01 16:16:09,007 INFO    Thread-4  :2869 [run_manager.py:_on_file_created():681] file/dir created: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/wandb-metadata.json
+2020-09-01 16:16:09,007 INFO    Thread-4  :2869 [run_manager.py:_on_file_created():681] file/dir created: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/code/train.py
+2020-09-01 16:16:09,008 INFO    Thread-4  :2869 [run_manager.py:_on_file_created():681] file/dir created: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/wandb-summary.json
+2020-09-01 16:16:09,008 INFO    Thread-4  :2869 [run_manager.py:_on_file_created():681] file/dir created: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/requirements.txt
+2020-09-01 16:16:09,009 INFO    Thread-4  :2869 [run_manager.py:_on_file_created():681] file/dir created: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/code
+2020-09-01 16:16:09,009 INFO    Thread-4  :2869 [run_manager.py:_on_file_created():681] file/dir created: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/media/table
+2020-09-01 16:16:09,009 INFO    Thread-4  :2869 [run_manager.py:_on_file_created():681] file/dir created: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/media
+ager.py:_on_file_created():681] file/dir created: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/media/table
+2020-09-01 16:16:09,009 INFO    Thread-4  :2869 [2rx5i2rg:run_manager.py:_on_file_created():681] file/dir created: /home/runner/work/wine/wine/wandb/run-20200901_161607-2rx5i2rg/media
