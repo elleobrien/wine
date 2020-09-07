@@ -56,6 +56,8 @@ run = api.run(f"sayakpaul/wandb-github-actions/{wandb.run.id}")
 metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 
+print(wandb.run.entity, wandb.run.project)
+
 # Create a comment on the commit
 # Credits:
 # https://github.community/t/automatic-commenting-on-a-commit-with-results-from-a-script/129529/6?u=sayakpaul
