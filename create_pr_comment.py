@@ -43,10 +43,9 @@ data = {
 }
 comment_response = requests.post(issue_comment_url,
 	headers={
-		"Accept": "application/vnd.github.v3+json",
-		"Authorization": "token {}".format(args["token"])
+		"Accept": "application/vnd.github.v3+json"
+		# "Authorization": "token {}".format(args["token"])
 	} ,
 	data=json.dumps(data)
 )
-if comment_response.status_code == 201:
-	print("We are good!")
+print(comment_response.text )
