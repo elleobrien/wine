@@ -48,4 +48,4 @@ comment_response = requests.post(issue_comment_url,
 	} ,
 	data=json.dumps(data)
 )
-print(comment_response.text )
+print(comment_response.text)
