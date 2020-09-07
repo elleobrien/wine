@@ -35,8 +35,7 @@ if single_pr_response.status_code == 200:
 	print(issue_comment_url)
 
 # Load the run URL
-f = open("run.txt", "r").read()
-run_url = f[0]
+run_url = open("run.txt", "r").read()
 
 # Create the comment and make the request
 data = {
