@@ -56,9 +56,13 @@ run = api.run(f"{wandb.run.entity}/{wandb.run.project}/{wandb.run.id}")
 metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 
-# Create a comment on the commit
-# Credits:
-# https://github.community/t/automatic-commenting-on-a-commit-with-results-from-a-script/129529/6?u=sayakpaul
+# Generate a file containing the rul URL
+with open("run.txt") as f:
+	f.write(wandb.run.get_url())
+
+# # Create a comment on the commit
+# # Credits:
+# # https://github.community/t/automatic-commenting-on-a-commit-with-results-from-a-script/129529/6?u=sayakpaul
 run_url = wandb.run.get_url()
 print("\n======================= Push changes to remote =======================")
 print("Set git config...")
@@ -66,7 +70,6 @@ subprocess.Popen(["git", "config", "--global", "user.name", "github-actions[bot]
 subprocess.Popen(["git", "config", "--global", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"])
 
 print("Push to remote...")
-subprocess.Popen(["git", "add", "-A"])
+subprocess.Popen(["git", "add", "-f", "run.txt"])
 subprocess.Popen(["git", "commit", "-m", run_url])
 subprocess.Popen(["git", "push"])
-subprocess.Popen(["rm", "-rf", "wandb"])
