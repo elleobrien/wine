@@ -15,7 +15,7 @@ jobs:
       
       - name: Comment on the latest PR
         run: |
-          pip freeze
+          pip install requests
           python create_pr_comment.py --token ${{ secrets.GH_ACCESS_TOKEN }}
           echo "Okay!"
 
