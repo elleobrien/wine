@@ -18,4 +18,4 @@ jobs:
           # Your ML workflow goes here
           python -c "import sys; print(sys.version)"
           python create_pr_comment.py --token ${{ secrets.GH_ACCESS_TOKEN }}
-          echo "We are good."
+
