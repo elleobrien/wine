@@ -1,6 +1,6 @@
 name: Automatic comment on the latest PR
 
-on: [pull_request]
+on: [pull_request_target]
 
 jobs:
   run:
@@ -16,7 +16,5 @@ jobs:
       - name: Comment on the latest PR
         run: |
           pip install requests
-          git config --global user.name github-actions[bot]
-          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
-          python create_pr_comment.py --token ${{ secrets.GH_ACCESS_TOKEN }}
+          python create_pr_comment.py --token ${{ secrets.GITHUB_TOKEN }}
 
