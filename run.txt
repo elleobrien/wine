@@ -1,1 +1,1 @@
-https://app.wandb.ai/sayakpaul/wandb-github-actions/runs/30ugyb4g
+https://app.wandb.ai/sayakpaul/wandb-github-actions/runs/2yg4hd5t
