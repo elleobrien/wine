@@ -37,7 +37,6 @@ if single_pr_response.status_code == 200:
 # Load the run URL
 f = open("run.txt", "r").read()
 run_url = f[0]
-f.close()
 
 # Create the comment and make the request
 data = {
