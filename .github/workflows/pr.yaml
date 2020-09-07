@@ -16,6 +16,6 @@ jobs:
       - name: Comment on the latest PR
         run: |
           # Your ML workflow goes here
-          pip freeze
+          which python
           python create_pr_comment.py --token ${{ secrets.GH_ACCESS_TOKEN }}
           echo "We are good."
