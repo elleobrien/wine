@@ -44,7 +44,7 @@ data = {
 comment_response = requests.post(issue_comment_url,
 	headers={
 		"Accept": "application/vnd.github.v3+json"
-		# "Authorization": "token {}".format(args["token"])
+		"Authorization": "token {}".format(args["token"])
 	} ,
 	data=json.dumps(data)
 )
