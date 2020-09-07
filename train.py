@@ -52,7 +52,7 @@ wandb.sklearn.plot_regressor(regr, X_train, X_test, y_train, y_test)
 # More logging
 # This will be exported as a run artifact
 api = wandb.Api()
-run = api.run(f"{wandb.run.entity}/{wandb.run.projectv}/{wandb.run.id}")
+run = api.run(f"{wandb.run.entity}/{wandb.run.project}/{wandb.run.id}")
 metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 
@@ -66,7 +66,7 @@ subprocess.Popen(["git", "config", "--global", "user.name", "github-actions[bot]
 subprocess.Popen(["git", "config", "--global", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"])
 
 print("Push to remote...")
-subprocess.Popen(["git", "add", "-A"])
 subprocess.Popen(["git", "rm -rf", "wandb"])
+subprocess.Popen(["git", "add", "-A"])
 subprocess.Popen(["git", "commit", "-m", run_url])
 subprocess.Popen(["git", "push"])
