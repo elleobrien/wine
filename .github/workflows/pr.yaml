@@ -17,5 +17,5 @@ jobs:
         run: |
           # Your ML workflow goes here
           ls
-          python create_pr_comment.py.py --token ${{ secrets.GH_ACCESS_TOKEN }}
+          python create_pr_comment.py --token ${{ secrets.GH_ACCESS_TOKEN }}
           echo "We are good."
