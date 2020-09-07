@@ -1,0 +1,20 @@
+name: Automatic comment on the latest PR
+
+on: [pull_request]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'    
+      
+      - name: Comment on the latest PR
+        run: |
+          # Your ML workflow goes here
+          python create_pr_comment.py.py --token ${{ secrets.GH_ACCESS_TOKEN }}
+          echo "We are good."
