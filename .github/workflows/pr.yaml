@@ -19,5 +19,4 @@ jobs:
           git config --global user.name github-actions[bot]
           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
           python create_pr_comment.py --token ${{ secrets.GH_ACCESS_TOKEN }}
-          echo "Okay!"
 
