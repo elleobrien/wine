@@ -57,7 +57,7 @@ metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 
 # Generate a file containing the rul URL
-with open("run.txt") as f:
+with open("run.txt", "w") as f:
 	f.write(wandb.run.get_url())
 
 # # Create a comment on the commit
