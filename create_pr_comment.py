@@ -5,7 +5,7 @@ import json
 # Construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-g", "--token", required=True,
-	help="GitHub access token")
+	help="GitHub token")
 args = vars(ap.parse_args())
 
 # Get all the PRs

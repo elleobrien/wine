@@ -1,8 +1,6 @@
 name: Automatic comment on the latest PR
 
-on: 
-  pull_request_target:
-    types: [opened, edited]
+on: [pull_request_target]
 jobs:
   run:
     runs-on: ubuntu-latest
