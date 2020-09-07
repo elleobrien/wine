@@ -15,7 +15,7 @@ jobs:
       
       - name: Comment on the latest PR
         run: |
-          # Your ML workflow goes here
           python -c "import sys; print(sys.version)"
           python create_pr_comment.py --token ${{ secrets.GH_ACCESS_TOKEN }}
+          echo "Okay!"
 
