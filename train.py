@@ -52,11 +52,9 @@ wandb.sklearn.plot_regressor(regr, X_train, X_test, y_train, y_test)
 # More logging
 # This will be exported as a run artifact
 api = wandb.Api()
-run = api.run(f"sayakpaul/wandb-github-actions/{wandb.run.id}")
+run = api.run(f"{wandb.run.entity}/{wandb.run.projectv}/{wandb.run.id}")
 metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
-
-print(wandb.run.entity, wandb.run.project)
 
 # Create a comment on the commit
 # Credits:
