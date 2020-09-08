@@ -1,12 +1,6 @@
 import requests
-import argparse
 import json
-
-# Construct the argument parse and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-g", "--token", required=True,
-	help="GitHub token")
-args = vars(ap.parse_args())
+import os
 
 # Get all the PRs
 list_pr_response = requests.get("https://api.github.com/repos/sayakpaul/wine/pulls",
@@ -44,7 +38,7 @@ data = {
 comment_response = requests.post(issue_comment_url,
 	headers={
 		"Accept": "application/vnd.github.v3+json",
-		"Authorization": "token {}".format(args["token"])
+		"Authorization": "token {}".format(os.environ['TOKEN'])
 	} ,
 	data=json.dumps(data)
 )
