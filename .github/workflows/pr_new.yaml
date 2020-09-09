@@ -1,17 +1,18 @@
 name: PR Comment
 
 on:
-  pull_request:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened]
 
 jobs:
   PR-Comment:
     runs-on: ubuntu-latest
     steps:
+    - name: Get run URL
+      run: |
+        body=$(<run.txt)
     - name: PR Comment
       uses: actions/github-script@v2
-    - name: Get the run URL
-      run: |
-            body=$(<run.txt)
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
@@ -19,5 +20,5 @@ jobs:
             issue_number: ${{ github.event.number }},
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: body
+            body: ':warning: Test!'
           })
