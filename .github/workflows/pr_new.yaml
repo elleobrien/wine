@@ -20,5 +20,5 @@ jobs:
             issue_number: ${{ github.event.number }},
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: ':warning: Test!'
+            body: body
           })
