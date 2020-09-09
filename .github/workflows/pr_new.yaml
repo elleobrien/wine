@@ -11,16 +11,10 @@ jobs:
     - name: Get run URL
       run: |
         body=$(<run.txt)
-      env:
-        body: body
-    - name: PR Comment
-      uses: actions/github-script@v2
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          github.issues.createComment({
-            issue_number: ${{ github.event.number }},
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: ${{ env.body }}
-          })
+        curl --request POST \
+        --url https://api.github.com/repos/context.repo.owner/${{ github.repository }}/issues/${{ github.event.number }}/comments \
+        --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+        --header 'Accept: application/vnd.github.v3+json' \
+        --data '{
+          "body": body
+          }'
