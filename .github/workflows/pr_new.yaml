@@ -9,10 +9,11 @@ jobs:
     steps:
     - name: PR Comment
       uses: actions/github-script@v2
+    - name: Get the run URL
+      run: |
+            body=$(<run.txt)
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
-        run: |
-          body=$(<run.txt)
         script: |
           github.issues.createComment({
             issue_number: ${{ github.event.number }},
