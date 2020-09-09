@@ -64,7 +64,6 @@ f.close()
 # # Create a comment on the commit
 # # Credits:
 # # https://github.community/t/automatic-commenting-on-a-commit-with-results-from-a-script/129529/6?u=sayakpaul
-print("\n======================= Push changes to remote =======================")
 print("Set git config...")
 subprocess.Popen(["git", "config", "--global", "user.name", "github-actions[bot]"])
 subprocess.Popen(["git", "config", "--global", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"])
