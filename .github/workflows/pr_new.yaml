@@ -11,6 +11,8 @@ jobs:
     - name: Get run URL
       run: |
         body=$(<run.txt)
+      env:
+        body: body
     - name: PR Comment
       uses: actions/github-script@v2
       with:
@@ -20,5 +22,5 @@ jobs:
             issue_number: ${{ github.event.number }},
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: body
+            body: ${{env.body}}
           })
