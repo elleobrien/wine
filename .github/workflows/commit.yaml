@@ -3,7 +3,7 @@ name: Metric logging with wandb and automatic commenting on a PR
 on: [push]
 
 jobs:
-  run:
+  commit:
     runs-on: ubuntu-latest
     
     steps:
@@ -45,6 +45,7 @@ jobs:
   PR-Comment:
     runs-on: ubuntu-latest
     needs: [commit]
+    
     steps:
       - name: add PR issue comment
         run: |
