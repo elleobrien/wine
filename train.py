@@ -16,7 +16,7 @@ df = pd.read_csv("wine_quality.csv")
 
 # Split into train and test sections
 y = df.pop("quality")
-X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random_state=seed)
+X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.3, random_state=seed)
 
 #################################
 ########## MODELLING ############
