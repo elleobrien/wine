@@ -1,0 +1,4 @@
+[core]
+    remote = mockremote
+['remote "mockremote"']
+    url = ../mock/dvc/remote
