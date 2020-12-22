@@ -1,4 +1,4 @@
 [core]
-    remote = drive
-['remote "drive"']
-    url = gdrive://1bvQTBHqWhxj1bwy5mlm3BKGaeNq98hGn
+    remote = gcs
+['remote "gcs"']
+    url = gs://epidemic-dvc-storage

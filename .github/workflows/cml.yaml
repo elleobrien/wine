@@ -10,6 +10,10 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          bash install-gcloud.sh
+          cat ${{ secrets.GITHUB_TOKEN }} > sa.json
+          gcloud auth activate-service-account --key-file=sa.json
+
           # Your ML workflow goes here
           docker build -t wine .
           dvc pull
