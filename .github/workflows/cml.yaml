@@ -12,6 +12,7 @@ jobs:
         run: |
           # Your ML workflow goes here
           docker build -t wine .
+          dvc pull
           dvc repro
 
           cml-send-comment report.md
