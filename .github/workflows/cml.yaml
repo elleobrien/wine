@@ -12,5 +12,10 @@ jobs:
         run: |
           # Your ML workflow goes here
           docker build -t wine .
-          docker run wine > report.md
+          docker run wine
+          docker run \
+            --mount type=bind,source=${PWD}/data,target=/home/trainer/app/data \
+            --mount type=bind,source=${PWD}/metrics,target=/home/trainer/app/metrics
+            wine
+          cat metrics/metrics.json >> report.md
           cml-send-comment report.md

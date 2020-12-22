@@ -29,16 +29,16 @@ regr = RandomForestRegressor(max_depth=7, random_state=seed)
 regr.fit(X_train, y_train)
 
 # Report training set score
-train_score = regr.score(X_train, y_train) * 100
+train_score = regr.score(X_train, y_train)
 # Report test set score
-test_score = regr.score(X_test, y_test) * 100
+test_score = regr.score(X_test, y_test)
 
 # Write scores to a file
-with open("metrics.txt", "w") as outfile:
+with open("metrics/metrics.txt", "w") as outfile:
     outfile.write("Training variance explained: %2.1f%%\n" % train_score)
     outfile.write("Test variance explained: %2.1f%%\n" % test_score)
 
-with open("metrics.json", "w") as outfile:
+with open("metrics/metrics.json", "w") as outfile:
     json.dump({"r2_train": train_score, "r2_test": test_score}, outfile)
 
 ##########################################
