@@ -1,4 +1,5 @@
 import json
+import pickle
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -28,17 +29,16 @@ X_train, X_test, y_train, y_test = train_test_split(
 regr = RandomForestRegressor(max_depth=7, random_state=seed)
 regr.fit(X_train, y_train)
 
+pickle.dump(regr, open("data/model.p", "wb"))
+
+
 # Report training set score
 train_score = regr.score(X_train, y_train)
 # Report test set score
 test_score = regr.score(X_test, y_test)
 
 # Write scores to a file
-with open("metrics/metrics.txt", "w") as outfile:
-    outfile.write("Training variance explained: %2.1f%%\n" % train_score)
-    outfile.write("Test variance explained: %2.1f%%\n" % test_score)
-
-with open("metrics/metrics.json", "w") as outfile:
+with open("data/metrics.json", "w") as outfile:
     json.dump({"r2_train": train_score, "r2_test": test_score}, outfile)
 
 ##########################################
@@ -65,7 +65,7 @@ ax.set_ylabel("Feature", fontsize=axis_fs)  # ylabel
 ax.set_title("Random forest\nfeature importance", fontsize=title_fs)
 
 plt.tight_layout()
-plt.savefig("feature_importance.png", dpi=120)
+plt.savefig("data/feature_importance.png", dpi=120)
 plt.close()
 
 
@@ -88,4 +88,4 @@ plt.ylim((2.5, 8.5))
 plt.xlim((2.5, 8.5))
 
 plt.tight_layout()
-plt.savefig("residuals.png", dpi=120)
+plt.savefig("data/residuals.png", dpi=120)

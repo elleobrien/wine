@@ -1,0 +1,23 @@
+train:
+  cmd: docker run --mount type=bind,source=/Users/danielklevebring/dev/wine/data,target=/home/trainer/app/data
+    wine
+  deps:
+  - path: data/wine_quality.csv
+    md5: 6a883fd98624e18c0b7ce251f4fab4fb
+    size: 100951
+  - path: train.py
+    md5: 8b08bfa671f70f65ba5f8217fb49aea6
+    size: 2500
+  outs:
+  - path: data/feature_importance.png
+    md5: f38d50e87327f1003ad90aeac108b93d
+    size: 46526
+  - path: data/metrics.json
+    md5: 22d211d246a01377cc8213e434397a93
+    size: 64
+  - path: data/model.p
+    md5: 4c7ffbe0da0e6ecb2ec894d29f103efb
+    size: 955341
+  - path: data/residuals.png
+    md5: 7f13891a0e31f531555a3fbff13d5556
+    size: 50040

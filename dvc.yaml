@@ -1,0 +1,15 @@
+stages:
+  train:
+    cmd: docker run --mount type=bind,source=/Users/danielklevebring/dev/wine/data,target=/home/trainer/app/data
+      wine
+    deps:
+    - data/wine_quality.csv
+    - train.py
+    outs:
+    - data/model.p
+    - data/feature_importance.png
+    - data/residuals.png
+    metrics:
+    - data/metrics.json:
+        cache: false
+
