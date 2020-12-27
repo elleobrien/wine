@@ -1,6 +1,6 @@
 FROM python:3.8.6-slim-buster as build
 
-RUN apt-get update && apt-get install -y build-essential
+RUN apt-get update && apt-get install -y build-essential git
 
 RUN groupadd -g 999 trainer && \
     useradd -r -m -u 999 -g trainer trainer
@@ -11,10 +11,9 @@ RUN pip install pipenv
 
 USER trainer
 
-COPY Pipfile Pipfile.lock ./
-RUN pipenv install --deploy
+COPY Pipfile ./
+RUN pipenv install --skip-lock
 
-COPY train.py ./
+COPY . ./
 
-ENTRYPOINT ["pipenv", "run"]
-CMD ["python", "train.py"]
+CMD ["sh", "train.sh"]
