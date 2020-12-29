@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-pipenv run dvc pull
-pipenv run dvc repro
+dvc pull
+dvc repro
 
 pipenv run python train.py
 
