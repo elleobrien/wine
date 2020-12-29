@@ -17,9 +17,13 @@ jobs:
           # Your ML workflow goes here
           docker build -t wine .
 
-          docker run \
+          docker run --name wine \
             --mount type=bind,source=${HOME}/.config/gcloud/application_default_credentials.json,target=/etc/gcp.json \
             -e GOOGLE_APPLICATION_CREDENTIALS=/etc/gcp.json \
             wine 
+
+          docker cp wine:/app/metrics/metrics.json metrics/metrics.json
+          git fetch --prune
+          dvc metrics diff --show-md master > report.md
 
           cml-send-comment report.md
