@@ -15,10 +15,7 @@ jobs:
           # Your ML workflow goes here
           docker build -t wine .
 
-          docker run --name wine \
-            --mount type=bind,source=${PWD}/sa.json,target=/etc/gcp.json \
-            -e GOOGLE_APPLICATION_CREDENTIALS=/etc/gcp.json \
-            wine 
+          docker run --name wine wine 
 
           docker cp wine:/app/metrics/metrics.json metrics/metrics.json
           git fetch --prune

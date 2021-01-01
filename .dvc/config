@@ -1,4 +1,4 @@
 [core]
-    remote = gcs
-['remote "gcs"']
-    url = gs://epidemic-dvc-storage
+    remote = mockremote
+['remote "mockremote"']
+    url = ../tests/remote
