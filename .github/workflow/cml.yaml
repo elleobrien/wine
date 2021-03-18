@@ -1,0 +1,20 @@
+name: MLOps-test-with-wine-quality
+on: [push]
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Train my model"
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+
+          # Your ML workflow goes here
+          pip install -r requirements.txt
+          python train.py
+
+          # Write your CML report
+          cat metrics.txt >> report.md
+          cml-send-comment report.md
