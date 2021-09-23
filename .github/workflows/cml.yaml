@@ -9,11 +9,15 @@ jobs:
       - name: cml_run
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+          MINIO_ACCESS_KEY: ${{secrets.MINIO_ACCESS_KEY}}
+          MINIO_SECRET_ACCESS_KEY: ${{secrets.MINIO_SECRET_ACCESS_KEY}}
+          MINIO_URI: ${{secrets.MINIO_URI}}
+          MLFLOW_URI: ${{secrets.MLFLOW_URI}}
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train.py
-          
+          ls
           echo "## Model metrics" > report.md
           cat metrics.txt >> report.md
           
