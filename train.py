@@ -10,7 +10,7 @@ from minio import Minio
 import os
 
 minio_access_key=os.environ.get('MINIO_ACCESS_KEY')
-minio_secret_access_key=os.environ.get('MINIO_SECRET_ACCESS_KE')
+minio_secret_access_key=os.environ.get('MINIO_SECRET_ACCESS_KEY')
 minio_uri=os.environ.get('MINIO_URI')
 mlflow_uri=os.environ.get('MLFLOW_URI')
 
