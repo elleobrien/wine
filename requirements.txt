@@ -3,3 +3,5 @@ sklearn
 matplotlib
 seaborn
 numpy
+minio
+mlflow
