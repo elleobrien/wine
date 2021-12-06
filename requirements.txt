@@ -1,5 +1,1 @@
 pandas
-sklearn
-matplotlib
-seaborn
-numpy
