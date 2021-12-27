@@ -1,4 +1,4 @@
-name: my-exp
+name: your-workflow-name
 on: [push]
 jobs:
   run:
@@ -20,10 +20,10 @@ jobs:
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train.py
-          echo "## Model Metrics" > report.md
-          cat metrics.txt >> report.md
-          echo "## Data Vis" >> report.md
-          cml-publish feature_importance.png --md >> report.md
-          cml-publish residuals.png --md >> report.md
-          
+      - name: Write CML report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Post reports as comments in GitHub PRs
+          cat results.txt >> report.md
           cml-send-comment report.md
