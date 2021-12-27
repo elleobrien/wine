@@ -20,10 +20,9 @@ jobs:
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train.py
-      - name: Write CML report
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Post reports as comments in GitHub PRs
+          echo "## Metrics" > report.md
           cat results.txt >> report.md
+          echo '## Data vis' >> report.md
+          cml-publish feature_importance.png --md >> report.md
+          cml-publish residuals.png --md >> report.md
           cml-send-comment report.md
