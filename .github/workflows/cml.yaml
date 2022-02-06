@@ -1,5 +1,5 @@
 name: model-wine-quality
-on: push
+on: [push]
 jobs:
   run:
     runs-on: [ubuntu-latest]
@@ -8,12 +8,13 @@ jobs:
       - uses: action/checkout@v2
       - name: cml_run
         env: 
-          repo_token: ${{ sectrets.GITHUB_TOKEN}}
+          repo_token: ${{ sectrets.GITHUB_TOKEN }}
         run: |
+          
           # Your ML workflow goes there
           pip install -r requirements.txt
           python train.py
           
-          echo 'MODEL METRICS'
-          car metrics.txt
+          echo "MODEL METRICS"
+          cat metrics.txt
         
