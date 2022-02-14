@@ -1,0 +1,21 @@
+name: Model-wine-quality
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    container: docker://ghcr.io/iterative/cml:0-dvc2-base1
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: cml_run
+        env: 
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Your ML workflow goes here
+          pip install -r requirements.txt
+          python train.py
+          
+          echo "MODEL_METRICS
+          cat metrics.txt
+          
+          
