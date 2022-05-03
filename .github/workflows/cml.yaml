@@ -18,8 +18,9 @@ jobs:
           
           echo "## Model metrics" > report.md
           cat metrics.txt
+          cat cml --version
           
           echo "## Data viz" >> report.md
           cml-publish feature_importance.png --md >> report.md
           cml publish residuals.png --md >> report.md          
-          # cml send-comment report.md 
+          cml send-comment report.md 
