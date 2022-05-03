@@ -1,21 +1,19 @@
-name: model-wine-quality
+name: train-my-model
 on: [push]
 jobs:
-  run:
-    runs-on: [ubuntu-latest]
+  train-model:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v3
+      - uses: iterative/setup-cml@v1
+      - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - uses: iterative/setup-cml@v1
-      - name: cml_run
+      - name: Train model
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-
-          # Your ML workflow goes here
-          pip install -r requirements.txt
+          pip3 install -r requirements.txt
           python train.py
           
           echo "## Model metrics" > report.md
