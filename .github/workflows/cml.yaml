@@ -1,28 +1,17 @@
-name: train-my-model
-on: [push]
+name: cml send-comment test
+on:
+  push:
+
 jobs:
-  train-model:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: iterative/setup-cml@v1
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-      - name: Train model
+      - name: test
         env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          pip3 install -r requirements.txt
-          python train.py
-          
-          echo cml --version
-          cml --version
-          echo "## Model metrics" > report.md
-          cat metrics.txt
-          
-          
-          echo "## Data viz" >> report.md
-          cml-publish feature_importance.png --md >> report.md
-          cml publish residuals.png --md >> report.md          
-          cml send-comment report.md 
+          echo "# Test" >> report.md
+          echo "hello" >> report.md
+          # cml send-comment report.md
