@@ -10,7 +10,7 @@ seed = 42
 ################################
 ########## DATA PREP ###########
 ################################
-
+#
 # Load in the data
 df = pd.read_csv("wine_quality.csv")
 
@@ -36,7 +36,7 @@ with open("metrics.txt", 'w') as outfile:
         outfile.write("Training variance explained: %2.1f%%\n" % train_score)
         outfile.write("Test variance explained: %2.1f%%\n" % test_score)
 
-
+#
 ##########################################
 ##### PLOT FEATURE IMPORTANCE ############
 ##########################################
