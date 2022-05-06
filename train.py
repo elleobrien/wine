@@ -10,7 +10,7 @@ seed = 42
 ################################
 ########## DATA PREP ###########
 ################################
-
+#
 # Load in the data
 df = pd.read_csv("wine_quality.csv")
 
@@ -23,7 +23,7 @@ X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random
 #################################
 
 # Fit a model on the train section
-regr = RandomForestRegressor(max_depth=5, random_state=seed)
+regr = RandomForestRegressor(max_depth=8, random_state=seed)
 regr.fit(X_train, y_train)
 
 # Report training set score
@@ -36,7 +36,7 @@ with open("metrics.txt", 'w') as outfile:
         outfile.write("Training variance explained: %2.1f%%\n" % train_score)
         outfile.write("Test variance explained: %2.1f%%\n" % test_score)
 
-
+#
 ##########################################
 ##### PLOT FEATURE IMPORTANCE ############
 ##########################################
