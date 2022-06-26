@@ -32,4 +32,6 @@ jobs:
               echo "$FILE_RESID exists."
           fi
           
+          echo "## MODEL METRICS" > report.md
+          
           
