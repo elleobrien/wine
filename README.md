@@ -1,2 +1,6 @@
-# Wine quality prediction
-Modelling a Kaggle dataset of [red wine properties and quality ratings](https://www.kaggle.com/uciml/red-wine-quality-cortez-et-al-2009). 
+# CI in Machine Learning
+
+This repository is a CI demo for a simple data science project. I used:
+- Github Actions: To define the automated pipeline
+- CML: To build behaviour test for my ML project (e.g. visualization of the metrics in the PR)
+- BentoML: To containerize my project
