@@ -21,13 +21,15 @@ jobs:
           pip install -r requirements.txt
           python train.py
           
-          echo "## Model metrics" > report.md
-          cat metrics.txt >> report.md
+          FILE_FE_IM=feature_importance.png
+          FILE_RESID=residuals.png
           
-          echo "## Data viz" >> report.md
-          cml-publish feature_importance.png --md >> report.md
-          cml-publish residuals.png --md >> report.md
+          if test -f "$FILE_FE_IM"; then
+              echo "$FILE_FE_IM exists."
+          fi          
           
-          cml-send-comment report.md
+          if test -f "$FILE_RESID"; then
+              echo "$FILE_RESID exists."
+          fi
           
           
