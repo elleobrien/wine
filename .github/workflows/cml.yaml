@@ -32,7 +32,7 @@ jobs:
               echo "$FILE_RESID exists."
           fi
           
-          echo "## Model metrics" > report.md
+          echo "## Model metric" > report.md
           cat metrics.txt >> report.md
           
           echo "## Data viz" >> report.md
