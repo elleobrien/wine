@@ -27,7 +27,7 @@ jobs:
           
           echo "## Data Visualization" >> report.md
           cml-publish feature_importance.png --md >> report.md
-          cml-public residuals.png --md >> report.md
+          cml-publish residuals.png --md >> report.md
           
           cml-send-comment report.md
           
