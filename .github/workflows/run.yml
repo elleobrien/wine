@@ -1,0 +1,16 @@
+name: model-wine-quality
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest   
+    container: 
+      image : composer:latest
+      volumes:
+        -my-app:/app
+    steps:
+      - uses: actions/checkout@v3
+      - name: Train model
+        run: |
+          # Your ML workflow goes here
+          pip install -r requirements.txt
+          python train.py
