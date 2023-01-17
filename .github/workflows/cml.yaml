@@ -1,5 +1,9 @@
 name: cml_wine_quality
 on: [push]
+permissions:
+    id-token: write
+    contents: write            
+    security-events: write  
 jobs:
   run:
     runs-on: ubuntu-latest   
@@ -15,7 +19,7 @@ jobs:
 
           echo "Model metrics:" >> report.md
           cat metrics.txt >> report.md
-          echo "Data viz">>report.md
+          echo "Data viz" >> report.md
           echo '![](./feature_importance.png)' >> report.md
           echo '![](./residuals.png)' >> report.md
 
