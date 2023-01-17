@@ -7,19 +7,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: iterative/setup-cml@v1
-      - name: cml_run
+      - name: train model
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
-          python train.py
+          python train.py #generate plots
 
-          echo "Model metrics:" > report.md
+          echo "Model metrics:" >> report.md
           cat metrics.txt >> report.md
-
           echo "Data viz">>report.md
-          echo '![](./feature_importance.png "Feature importance")' >> report.md
-          echo '![](./residuals.png "residuals")' >> report.md
+          echo '![](./feature_importance.png)' >> report.md
+          echo '![](./residuals.png)' >> report.md
 
           cml comment create report.md
 
