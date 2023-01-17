@@ -1,0 +1,28 @@
+name: cml_wine_quality
+on: [push]
+permissions:
+    id-token: write
+    contents: write            
+    security-events: write  
+jobs:
+  run:
+    runs-on: ubuntu-latest   
+    steps:
+      - uses: actions/checkout@v3
+      - uses: iterative/setup-cml@v1
+      - name: train model
+        env:
+          REPO_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          pip install -r requirements.txt
+          python train.py #generate pngs
+
+          echo "Model metrics:" >> report.md
+          cat metrics.txt >> report.md
+          echo "Data viz" >> report.md
+          echo '![](./feature_importance.png)' >> report.md
+          echo '![](./residuals.png)' >> report.md
+
+          cml comment create report.md
+
+          
