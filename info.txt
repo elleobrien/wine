@@ -1,0 +1,7 @@
+activate venv from gitbash
+
+python.exe -m venv venv
+cd venv
+source ./Scripts/activate
+
+deactivate 
