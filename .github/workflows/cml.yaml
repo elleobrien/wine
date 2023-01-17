@@ -11,7 +11,7 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
-          python train.py #generate plots
+          python train.py #generate pngs
 
           echo "Model metrics:" >> report.md
           cat metrics.txt >> report.md
