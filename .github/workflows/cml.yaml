@@ -1,26 +1,8 @@
-name: get-token
-on:
-  push:{branches:["token"]}
-jobs:
-  print-token:
-    permissions:write-all
-    name:print-token
-    environment:dev
-    runs-on:ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-
-      - name: Get registration token
-        id: getRegToken
-        run: |
-          curl -X POST -H \"Accept: application/vnd.github.v3+json\"  -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/myprofile/myrepo/actions/runners/registration-token
-name: wine-quality
+name: cml_wine_quality
 on: [push]
 jobs:
   run:
-    runs-on: ubuntu-latest
-    container: ghcr.io/iterative/cml:0-dvc2-base1
+    runs-on: ubuntu-latest   
     steps:
       - uses: actions/checkout@v3
       - uses: iterative/setup-cml@v1
