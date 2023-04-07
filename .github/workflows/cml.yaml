@@ -24,6 +24,6 @@ jobs:
           
           cat metrics.txt >> report.md
           #cml-publish confusion_matrix.png --md --title 'confusion-matrix' >> report.md
-          echo "![](./plot.png)" >> report.md
+          echo "![](./residuals.png)" >> report.md
           echo "![](./feature_importance.png)" >> report.md
           cml-send-comment report.md 
