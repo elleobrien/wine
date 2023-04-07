@@ -1,4 +1,4 @@
-name: model-wine-quality
+name: model-wine
 on: [push]
 jobs:
   run:
@@ -6,7 +6,7 @@ jobs:
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
-      - name: cml_run
+      - name: cml_runnnig 
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
