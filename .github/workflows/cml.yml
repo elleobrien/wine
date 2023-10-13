@@ -20,15 +20,15 @@ jobs:
       - uses: iterative/setup-cml@v1
       - name: Train model
         run: |
-          echo Repo Token: $REPO_TOKEN
+          echo Repo Token: "$REPO_TOKEN
           # Your ML workflow goes here
-          pip install -r requirements.txt
-          python train.py
+          # pip install -r requirements.txt
+          # python train.py
           
-          echo "## Data Viz " > report.md
-          cat metrics.txt >> report.md
+          # echo "## Data Viz " > report.md
+          # cat metrics.txt >> report.md
           
-          cml-publish feature_importance.pgn --md >> report.md
-          cml-publish residuals.png --md >> report.md
+          # cml-publish feature_importance.pgn --md >> report.md
+          # cml-publish residuals.png --md >> report.md
           
-          cml-send-comment report.md
+          # cml-send-comment report.md
