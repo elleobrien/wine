@@ -20,9 +20,8 @@ jobs:
       # - uses: iterative/setup-cml@v1
       - name: Train model
         run: |
-          echo "Just variable ${{vars.MALI}}"
           echo "The secret: '${{secrets.REPO_TOKEN}}'"
-          echo "$STEP_VAR"
+
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train.py
@@ -32,9 +31,7 @@ jobs:
           
           cml-publish feature_importance.pgn --md >> report.md
           cml-publish residuals.png --md >> report.md
-        env:
-          REPO_TOKEN: ${{ secrets.CML_TOKEN }}
           
           cml-send-comment report.md
         env:
-          STEP_VAR: local variable
+          REPO_TOKEN: ${{ secrets.CML_TOKEN }}
