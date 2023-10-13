@@ -20,6 +20,7 @@ jobs:
       - uses: iterative/setup-cml@v1
       - name: Train model
         run: |
+          echo Repo Token: $REPO_TOKEN
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train.py
