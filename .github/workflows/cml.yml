@@ -14,13 +14,15 @@ jobs:
       # - uses: actions/setup-python@v4
       #   with:
       #     python-version: '3.x'
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - uses: iterative/setup-cml@v1
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 16
+      # - uses: iterative/setup-cml@v1
       - name: Train model
         run: |
-          echo Repo Token: "$REPO_TOKEN"
+          echo "Just variable $MALI"
+          echo "Repo Token: $REPO_TOKEN"
+          echo "$STEP_VAR"
           # Your ML workflow goes here
           # pip install -r requirements.txt
           # python train.py
@@ -32,3 +34,5 @@ jobs:
           # cml-publish residuals.png --md >> report.md
           
           # cml-send-comment report.md
+        env:
+          STEP_VAR: local variable
