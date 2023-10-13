@@ -20,8 +20,8 @@ jobs:
       # - uses: iterative/setup-cml@v1
       - name: Train model
         run: |
-          echo "Just variable $MALI"
-          echo "Repo Token: $REPO_TOKEN"
+          echo "Just variable ${{MALI}}"
+          echo "${{REPO_TOKEN}}"
           echo "$STEP_VAR"
           # Your ML workflow goes here
           # pip install -r requirements.txt
