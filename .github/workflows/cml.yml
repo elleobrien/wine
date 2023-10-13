@@ -21,7 +21,7 @@ jobs:
       - name: Train model
         run: |
           echo "Just variable ${{vars.MALI}}"
-          echo "${{vars.REPO_TOKEN}}"
+          echo "The secret: '${{secrets.REPO_TOKEN}}'"
           echo "$STEP_VAR"
           # Your ML workflow goes here
           # pip install -r requirements.txt
