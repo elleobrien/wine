@@ -28,10 +28,11 @@ jobs:
           
           echo "## Data Viz " > report.md
           cat metrics.txt >> report.md
+
+          echo '![](./feature_importance.png)' >> report.md
+          # cml comment update --publish feature_importance.pgn --md >> report.md
+          # cml comment update --publish residuals.png --md >> report.md
           
-          cml-publish feature_importance.pgn --md >> report.md
-          cml-publish residuals.png --md >> report.md
-          
-          cml-send-comment report.md
+          cml comment update report.md
         env:
           REPO_TOKEN: ${{ secrets.CML_TOKEN }}
