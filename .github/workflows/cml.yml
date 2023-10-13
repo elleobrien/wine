@@ -8,9 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       # may need to setup NodeJS & Python3 on e.g. self-hosted
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '16'
       - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
@@ -23,6 +20,8 @@ jobs:
           echo "The secret: '${{secrets.REPO_TOKEN}}'"
 
           # Your ML workflow goes here
+          apt update
+          apt install libc6
           pip install -r requirements.txt
           python train.py
           
