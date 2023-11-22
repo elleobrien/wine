@@ -16,14 +16,12 @@ jobs:
       #     python-version: '3.x'
       - uses: iterative/setup-cml@v1
       - name: Train model
+        env:
+            REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train.py
-      - name: Write CML report
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Post reports as comments in GitHub PRs
-          cat results.txt >> report.md
-          cml comment create report.md
+
+          echo "MODEL METRICS"
+          cat metrics.txt
