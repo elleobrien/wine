@@ -23,5 +23,9 @@ jobs:
           pip install -r requirements.txt
           python train.py
 
-          echo "MODEL METRICS"
-          cat metrics.txt
+          echo "##MODEL METRICS" > report.md
+          cat metrics.txt >> report.md
+
+          echo "## Data viz" >> report.md
+          cml-publish feature_importance.png --md >> report.md
+          cmlpublish residual.png --md >> report.md
