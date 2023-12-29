@@ -9,7 +9,7 @@ jobs:
       - uses: iterative/setup-cml@v1
       - name: Train model
         env:
-          REPO_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          REPO_TOKEN: ${{ github.token }}
         run: |
           pip install -r requirements.txt
           python train.py
@@ -24,6 +24,8 @@ jobs:
           echo "![](./residuals.png)" >> report.md
 
           cml comment create report.md
+         
+        
           
 
       
