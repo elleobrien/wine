@@ -4,7 +4,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     # optionally use a convenient Ubuntu LTS + DVC + CML image
-    # container: ghcr.io/iterative/cml:0-dvc2-base1
+    container: ghcr.io/iterative/cml:0-dvc2-base1
     steps:
       - uses: actions/checkout@v3
       # may need to setup NodeJS & Python3 on e.g. self-hosted
@@ -14,8 +14,9 @@ jobs:
       # - uses: actions/setup-python@v4
       #   with:
       #     python-version: '3.x'
-      - uses: iterative/setup-cml@v1
+      # - uses: iterative/setup-cml@v1
       - name: Train model
+        env: repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
