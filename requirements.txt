@@ -1,5 +1,6 @@
 pandas
-sklearn
+scikit-learn
 matplotlib
 seaborn
 numpy
+pip==23.3.1
