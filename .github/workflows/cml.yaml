@@ -28,6 +28,5 @@ jobs:
           echo "## Model metrics" > report.md
           cat metrics.txt >>report.md
           echo "## Data Viz" > report.md
-          cml comment create feature_importance.png --md >> report.md
-                    
+          cml publish ./plot.png --md >> report.md                    
           cml comment create report.md
