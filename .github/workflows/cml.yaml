@@ -31,5 +31,4 @@ jobs:
         run: |
           echo "## Data Viz" > report.md
           echo "![](./feature_importance.png)" >> report.md
-          
           cml comment create report.md
