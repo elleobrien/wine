@@ -3,3 +3,4 @@ scikit-klearn
 matplotlib
 seaborn
 numpy
+pip==23.3.1
