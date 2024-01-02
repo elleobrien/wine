@@ -15,7 +15,8 @@ jobs:
       #   with:
       #     python-version: '3.x'
       - uses: iterative/setup-cml@v1
-     
+      - env:
+            REPO_TOKEN: ${{ secrets.SECRET_TOKEN }}
       - name: Train model
         run: |
           # Your ML workflow goes here
