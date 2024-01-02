@@ -20,13 +20,16 @@ jobs:
         run: |
           python train.py
           
-      - name: Write CML report
+      - name: Validate token
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+      - name: Metrics    
         run: |
           echo "## Model metrics" > report.md
           cat metrics.txt >>report.md
+      - name: Creating vizualizations
+        run: |
           echo "## Data Viz" > report.md
-          cml comment create ./feature_importance.png -- publish >> report.md                    
+          echo "![](./feature_importance.png)" >> report.md
+          
           cml comment create report.md
