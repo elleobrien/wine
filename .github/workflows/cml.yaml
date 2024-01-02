@@ -1,0 +1,32 @@
+name: wine_quality
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    # optionally use a convenient Ubuntu LTS + DVC + CML image
+    # container: ghcr.io/iterative/cml:0-dvc2-base1
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Set up Python
+        uses: iterative/setup-cml@v1
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Train model
+        run: |
+          python train.py
+          
+      - name: Validate token
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Metrics    
+        run: |
+          echo "## Model metrics" > report.md
+          cat metrics.txt >>report.md
+          
+
