@@ -23,10 +23,12 @@ jobs:
       - name: Validate token
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Metrics    
         run: |
           echo "## Model metrics" > report.md
           cat metrics.txt >>report.md
+          
       - name: Creating vizualizations
         run: |
           echo "## Data Viz" > report.md
