@@ -29,8 +29,4 @@ jobs:
           echo "## Model metrics" > report.md
           cat metrics.txt >>report.md
           
-      - name: Creating vizualizations
-        run: |
-          echo "## Data Viz" > report.md
-          cml --publish "feature_importance.png" >> report.md
-          cml comment create report.md
+
